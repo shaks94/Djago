@@ -1,0 +1,240 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+<!-- {% include "navbar.html" %}
+ -->
+
+ {% block jquery %}
+
+ function completeBlock(progressBarId){
+ $(progressBarId).css("width","100%").attr("aria-valuenow","100").text("Complete");
+ }; 
+
+ function setNewPerc(progressBarId,percentNum,newText){
+ 	$(progressBarId).css("width",
+	$newPercent+"%").attr("aria-valuenow",percentNum).text(
+	newText); 
+
+ }; 
+      
+$signUpCount={{count}}; <!-- can also use var but $ sign is preferred
+ -->
+
+//$(".progress-bar").css("width","80%").attr("aria-valuenow","80").text("80%");
+
+if ($signUpCount ==0){
+
+	
+}
+
+else if($signUpCount>0 && $signUpCount<=5 )
+{
+
+
+	$newPercent = $signUpCount/5*100; 
+
+
+	setNewPerc("#count5",$newPercent,"number of friends "+$signUpCount);
+	
+}
+else if($signUpCount>5 && $signUpCount<=15 )
+{
+
+completeBlock("#count5");
+
+
+
+	$newCount=$signUpCount-5;
+	
+	$newPercent = $newCount/10*100; 
+	
+	setNewPerc("#count15",$newPercent,"number of friends "+$signUpCount);
+}
+else if($signUpCount>15 && $signUpCount<=25 )
+{
+completeBlock("#count5");
+
+	
+completeBlock("#count15");
+
+
+	$newCount=$signUpCount-15
+
+	$newPercent = $newCount/10*100; 
+	
+	
+	setNewPerc("#count25",$newPercent,"number of friends "+$signUpCount); 
+
+
+}
+else if($signUpCount>25 && $signUpCount<=50 )
+{
+completeBlock("#count5");
+
+completeBlock("#count15");
+
+completeBlock("#count25");
+
+
+	$newCount=$signUpCount-25
+	$newPercent = $newCount/25*100; 
+	
+
+	setNewPerc("#count50",$newPercent,"number of friends "+$signUpCount);
+
+}
+else
+{
+completeBlock("#count5");
+
+completeBlock("#count15");
+
+completeBlock("#count25");
+
+completeBlock("#count50");
+
+
+}
+
+
+
+
+{% endblock %}
+
+
+
+
+ {% block content %}
+{% include "navbar.html" %}
+{% block style %}
+    <style>
+     body{
+      border-top : 4px solid orange ;
+/*      min-height: 5000px;
+*//*      min-width: 5000px;
+*/      background:url("{% static "img/f.jpg" %}") no-repeat center center fixed;
+
+      background-size: cover;
+     }
+    </style>
+
+{% endblock %}
+
+    <div class="jumbotron" >
+      <div class="container">
+      <div class="row">
+
+      <div class='col-sm-6 pull-right' style='text-align:center'>
+     <i class="fa fa-share-alt fa-3x" ></i>
+     <br/>
+
+        <h1>Invite Friends &amp;  Earn Rewards</h1>
+        <p>Best way to gain &amp; only gain join it spread it and win over the world coz u got in it congrats Friends </p>
+        
+       
+        	<div class='well '  style ='background-color:white'>
+
+
+ {{ref_url}}
+ </div>
+ <br/>
+ <i class="fa fa-facebook-official fa-3x" aria-hidden="true " style="color:#3b5998"></i>
+<i class="fa fa-twitter-square fa-2x"  aria-hidden="true" style="color:#4099FF"></i>
+<i class="fa fa-reddit-square fa-2x" aria-hidden="true" style="color:#900020"></i>
+<i class="fa fa-google-plus-square fa-2x" aria-hidden="true" style="color:#4099FF"></i>
+<i class="fa fa-linkedin-square fa-2x" aria-hidden="true"style="color:#007bb6" ></i>
+
+
+      
+        </div>
+          <div class='col-md-6 pull-left '>
+
+          
+          <img src="{% static 'img/b.jpg' %}" class='img-responsive img-circle' />
+          
+          </div>
+      </div>
+      </div>
+    </div>
+     <div class="container" style="text-align:center">
+
+Total Counts are ={{count}}<br>
+
+<br/>
+<br/>
+<div class="row">
+	<div class="col-sm-3">
+	<h3>5 Joined</h3>
+	<div>
+	<h3>	Reward Name -<br/> Rookie</h3>
+	</div>
+	<i class="fa fa-user fa-4x" aria-hidden="true"></i>
+
+			<div class="progress" >
+				  <div id="count5"  class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0% ">
+				    it is 0%
+				  </div>
+				  <hr/>
+
+			</div>
+			<div>
+			<h5> Rewards</h5>
+			<ul>
+			<li> Reward 1</li>
+			<li> Reward 2</li>
+			</ul>
+			</div>
+			<hr/>  
+		
+	</div>
+	<div class="col-sm-3">
+			<h3>15 Joined</h3>
+				<h3>	Reward Name - <br/>Normal</h3>
+
+			<i  class="fa fa-users fa-4x" aria-hidden="true"></i>
+
+			<div class="progress">
+				  <div id="count15" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+				    it is 0%
+				  </div>
+			</div>
+		
+	</div>
+	
+
+	<div class="col-sm-3">
+			<h3>25 Joined</h3>
+			<h3>	Reward Name - Professional</h3>
+
+			<i  class="fa fa-users fa-4x" aria-hidden="true"></i>
+
+			<div class="progress">
+				  <div id="count25" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+				    it is 0%
+				  </div>
+			</div>
+		
+	</div>
+			<div class="col-sm-3">
+			<h3>50 Joined</h3>
+			<h3>	Reward Name - Ultimate</h3>
+
+			<i  class="fa fa-users fa-4x" aria-hidden="true"></i>
+
+
+
+			<div class="progress">
+				  <div id="count50" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+				    it is 0%
+				  </div>
+			</div>
+		
+	</div>
+
+</div>
+</div>
+
+
+{% endblock %}
+
+
+  

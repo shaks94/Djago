@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block style %}
+
+
+{% block content %}
+
+    <style>
+     body{
+      border-top : 4px solid orange ;
+/*      min-height: 5000px;
+*//*      min-width: 5000px;
+*/      background:url("{% static "img/d.jpg" %}") no-repeat center center fixed;
+
+      background-size: cover;
+     }
+     .jumbotron h1 {
+      font-family: Verdana, Arial, Helvetica, 
+     Futura, sans-serif; 
+     font-size: 1em; 
+     padding:0; 
+     margin:
+     
+
+     }
+     .jumbotron p{
+     
+     }
+    </style>
+
+
+{% endblock %}
+
+    <div class="jumbotron" style="background-color:white">
+      <div class="container">
+      <div class='col-sm-6'>
+        <h1 class="cursive wow flipInX" style="visibility: visible; animation-name: flipInX; text-align:center";>Hello Friends </h1>
+        <br/><br/>
+        <p> Join me friends and be part of raspberry pi , the new gen learning techniques </p>
+        
+        <p><a class="btn btn-default btn-md btn-block"  role="button">Be First &raquo;</a></p>
+        </div>
+          <div class='col-sm-6'>
+
+          
+          <img src="{% static 'img/i.jpg' %}" class='img-responsive img-rounded' />
+          
+          </div>
+      </div>
+    </div>
+        <div class="container" style='text-align:center' >
+
+ <div class ='col-sm-6 col-sm-offset-3'>
+   <i class="fa fa-key fa-4x" aria-hidden="true"></i>
+<div class=a >
+ <h1> Unlock First</h1>
+   </div>
+
+  
+<form class="form-horizontal" method= 'POST' action =' '>
+    <div class ='form-group form-group-lg'>
+    {% csrf_token %}
+     <!--  <input t  ype = 'text' name = 'email_2'/> -->
+    <!-- {{form.as_p}}
+     --><!-- form as paragraph -->
+
+
+     {{form.email.errors}}
+
+       <div class ="input-group">
+       <input class ='form-control'  type="email" name="email" placeholder="your email..."/>
+        <span class="input-group-btn">
+        <input type = "submit" value = "join" class = "btn btn-primary btn-lg" />
+
+        </span>
+                <i class="fa fa-thumbs-o-up fa-4x" aria-hidden="true"></i>
+
+      </div>
+    </div>
+ <!-- class btn cm from bootstrap -->
+</form>
+</div>
+</form>
+</div>
+
+
+</div>
+
+
+<div class="row" style='text-align:center;background-color:white;margin-top :80px '  >
+   
+<div class ='col-sm-12'>
+
+<h1>created by shubham sharma </h1>
+</div>
+
+
+</div>
+
+
+
+
+{% endblock %}
+
+
+  
